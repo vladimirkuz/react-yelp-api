@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
         </div>
 
         <div className="SearchBar-submit">
-          <a>Let's Go</a>
+          <a href='#'>Let's Go</a>
         </div>
       </div>
     )
