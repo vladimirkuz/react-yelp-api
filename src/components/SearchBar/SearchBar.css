@@ -11,7 +11,7 @@
 .SearchBar-sort-options ul {
   display: flex;
   justify-content: center;
-  margin-bottom: 2.22rem;
+  margin-bottom: 5.22rem;
   color: #ffffff;
   list-style: none;
 }
@@ -19,8 +19,8 @@
 .SearchBar-sort-options li {
   cursor: pointer;
   width: 4.33rem;
-  border-bottom: 1px solid #fff;
-  padding: 0 2.58rem .33rem 2.58rem;
+  border: 1px solid #fff;
+  padding: 0.33rem 2.58rem 0.33rem 2.58rem;
   line-height: 1.13;
   text-align: center;
   font-weight: 600;
@@ -34,8 +34,8 @@
 
 .SearchBar-sort-options li.active,
 .SearchBar-sort-options li.active:hover {
-  border-bottom: 1px solid #f0c36c;
-  color: #f0c36c;
+  border: 1px solid #c94c4c;
+  color: #c94c4c;
 }
 
 .SearchBar-fields {
@@ -65,7 +65,7 @@
 .SearchBar-submit a {
   border-radius: 4px;
   padding: .72rem 1.7rem;
-  background-color: #cca353;
+  background-color: #f7786b;
   color: #ffffff;
   font-weight: 600;
   transition: background-color .5s;
@@ -73,7 +73,7 @@
 
 .SearchBar-submit a:hover {
   cursor: pointer;
-  background-color: #a7874b;
+  background-color: #c94c4c;
 }
 
 @media only screen and (max-width: 560px) {

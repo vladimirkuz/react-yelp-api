@@ -17,6 +17,7 @@ class SearchBar extends React.Component {
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
 
+    //three types of sort option - future proof
     this.sortByOptions = {
       'Best Match': 'best_match',
       'Highest Rated': 'rating',
@@ -24,6 +25,7 @@ class SearchBar extends React.Component {
     };
   };
 
+  //dtermines if sort by option is active
   getSortByClass(sortByOption) {
     if (this.state.sortBy === sortByOption) {
       return 'active'
@@ -32,23 +34,36 @@ class SearchBar extends React.Component {
     }
   };
 
-  handleSortByChange(sortByOption) {
-    this.setState({sortBy: sortByOption});
-  };
 
+  //updates term state from input entry
   handleTermChange(event) {
     this.setState({term: event.target.value});
   };
 
+
+//updates location state from input entry
   handleLocationChange(event) {
     this.setState({location: event.target.value});
   };
 
-  handleSearch(event) {
-    this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
-    //prevent default action from clicking a link
-    event.preventDefault();
-  }
+  //updates search by option
+  handleSortByChange(sortByOption, event) {
+    this.setState({sortBy: sortByOption});
+    if (this.state.term && this.state.location){
+      this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
+    }
+  };
+
+//calls yelp api
+    handleSearch(event) {
+      //should only return search if term and location entered
+      if (this.state.term && this.state.location){
+      this.props.searchYelp(this.state.term, this.state.location, this.state.sortBy);
+    }
+      //prevent default action from clicking a link
+      event.preventDefault();
+    };
+
 
   renderSortByOptions() {
     return Object.keys(this.sortByOptions).map(sortByOption => {
@@ -73,7 +88,7 @@ class SearchBar extends React.Component {
         </div>
 
         <div className="SearchBar-submit">
-          <a onClick={this.handleSearch} href='www.#.com'>Let's Go</a>
+          <a onClick={this.handleSearch} href='www.#.com'>Search</a>
         </div>
       </div>
     )
