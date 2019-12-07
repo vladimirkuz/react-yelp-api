@@ -9,9 +9,13 @@ const Yelp = {
   search(term, location, sortBy) {
     return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`,
     {headers: {Authorization: `Bearer ${apiKey}`}}).then(response => {
-      return response.json();
-    }).then(jsonResponse => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Request failed');
+    }, networkError => console.log(networkError.message)).then(jsonResponse => {
       if (jsonResponse.businesses) {
+        try{
         return jsonResponse.businesses.map(business => {
           console.log(business);
            return {
@@ -27,6 +31,9 @@ const Yelp = {
              reviewCount: business.review_count
           }
         });
+      }catch(e){
+        console.log(e)
+      }
       }
 
     })
