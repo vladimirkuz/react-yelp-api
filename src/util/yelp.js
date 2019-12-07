@@ -1,7 +1,4 @@
-//Client ID
-//x90Mj02E5AK6v-2dda_9cA
 
-//API Key
 const apiKey = 'QLOauxeIxkI44RC8hVOemtmUQOKL6CAy0j-Xe68fGKuWdIVWFYjooimUUuvuTcJxpUwkdAO5jsMjKEsdTo8TEJHFRTkOYvFdvX4dpmIlEMDC4ywZZF8-kI5nNRTqXXYx';
 
 const Yelp = {
@@ -12,12 +9,14 @@ const Yelp = {
       if (response.ok) {
         return response.json();
       }
-      throw new Error('Request failed');
+      throw new Error('Request failed - return to vladcancode.com');
     }, networkError => console.log(networkError.message)).then(jsonResponse => {
+
       if (jsonResponse.businesses) {
         try{
         return jsonResponse.businesses.map(business => {
           console.log(business);
+          //returns business object where it's used in SearchBar component
            return {
              id: business.id,
              imageSrc: business.image_url,
@@ -33,6 +32,7 @@ const Yelp = {
         });
       }catch(e){
         console.log(e)
+
       }
       }
 
