@@ -1,9 +1,9 @@
-##This project was bootstrapped with Create React App.
+## This project was bootstrapped with Create React App.
 
-###Features
+### Features
 Search bussinesses by location with Yelp API
 
-###Setup
+### Setup
 To run app:
 
 npm install
