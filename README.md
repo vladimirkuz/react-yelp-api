@@ -6,6 +6,6 @@ Search businesses by location with Yelp API
 ### Setup
 To run app:
 
-npm install
+`npm install`
 
-npm start
+`npm start`
